@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../fav.png" sizes="30x30">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Data Logger</title>
+</head>
+
+<body>
+  
+    <div class="login">
+        <div class="login-item title">
+            <img src="https://tifatech.vn/user-upload/imgs/tifatech-manufacture-and-trading-company-limited-1.png" alt="">
+            <span class="login__title">DATA LOGGER</span>
+        </div>
+        <div class="login-item">
+            <div class="login__text">Username</div>
+            <input type="text" placeholder="Username" class="username" required autocomplete="on">
+
+        </div>
+        <div class="login-item">
+            <div class="login__text">Password</div>
+            <input class = "password" type="password" placeholder="Password" required autocomplete="on">
+        </div>
+        <div class="login-item">
+            <button class="login-btn">LOGIN</button>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+    const loginBtn = $('.login-btn');
+    let host = "https://ac20-2402-800-6205-8bdb-c4e5-ddf8-1c4d-11ef.ap.ngrok.io:443/";
+    let authUrl = host.concat("api/auth/login");
+    let username = $('.username');
+    let password = $('.password');
+    
+ 
+    loginBtn.onclick = function(){
+        let data = {
+            username:username.value,
+            password:password.value
+        };
+        console.log(data);
+        if(username == "" || password == ""){
+            alert("Invalid input. Try again");
+        }
+        authFetch('POST', authUrl, data)
+        .then(data =>{
+            console.log(data.token);
+            if(data.token){
+                localStorage.setItem("token", data.token);
+                location.href = "../home/index.html";
+            }
+            else{
+                alert("Failed to login.Please try again")
+            }
+        })
+
+    }
+    
+    async function authFetch(methodName, url, data){
+        const response = await fetch(url, {
+            method: methodName,
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        return response.json()
+    }
+    
+</script>

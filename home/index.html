@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../fav.png" sizes="30x30">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+        integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Data Logger</title>
+</head>
+<body>
+    <p class="main-title">DATA LOGGER</p>
+    <div class="main-content">
+        
+        <div class="deviceInfo">
+            <div class="info-item">
+                <p class="info__text">Device name:</p>
+                <input type="text">
+            </div>
+            <div class="info-item">
+                <p class="info__text">Object:</p>
+                <input type="text">
+            </div>
+            <div class="info-item">
+                <p class="info__text">Start time:</p>
+                <input type="text">
+            </div>
+            <div class="info-item">
+                <p class="info__text">Stop time:</p>
+                <input type="text">
+            </div>
+            <div class="info-item">
+                <p class="info__text">Interval:</p>
+                <input type="number">
+            </div>
+            <div class="info-item">
+                <button class="get-data-btn">Get data</button>
+            </div>
+        </div>
+        <div class="chart">
+            <canvas id="logChart"></canvas>
+        </div>
+        <div class="logout">
+            <button class="logout-btn">LOGOUT</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./script.js"></script>
+</html>

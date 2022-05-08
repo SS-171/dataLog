@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto' sans-serif
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+html, body{
+    position: fixed;
+    background-color: #eee;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;   
+    background-color: rgb(190, 241, 224);
+    animation: fadeIn 0.8s ease-in-out;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.login-item{
+    padding: 16px;
+    width: 100%;
+}
+.login-item.title{
+    text-align: center;
+    top: 30px;
+    bottom: 60px;
+}
+.login-item img{
+    position: relative;
+    margin-left: -60px;
+    margin-right: 10px;
+    width: 150px;
+    height: 50px;
+    object-fit: center;
+
+}
+.login__title{
+    color: rgb(2, 8, 94);
+    font-size: 26px;  
+    position: relative;
+    top: -12px;
+}
+.login-item input{
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+}
+.login-item input:focus{
+    outline: .8px solid rgb(52, 134, 49);
+}
+.login__text{
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 8px;
+}
+.login-btn{
+    padding: 10px 20px 10px 20px;
+    outline: none;
+    color: #000;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: rgb(78, 142, 179);
+    margin-top: 20px;
+    width: 100%;
+    letter-spacing: 1.2px;
+    font-weight:600;
+}
+.login-btn:hover{
+    cursor: pointer;
+    filter: brightness(1.2);
+}
