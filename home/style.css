@@ -5,8 +5,9 @@
     font-family: 'Roboto' sans-serif
 }
 body, html{
-    background-color: #eee;
+    background-color: #eee !important;
 }
+
 .main-title{
     color: rgb(5, 13, 119);
     font-size: 30px;
@@ -16,7 +17,7 @@ body, html{
     margin-bottom: 50px;
 }
 .chart {
-    min-height: 350px;
+    min-height: 400px;
     width: 80%;
     margin-top: 20px;
     color: #000;
@@ -48,29 +49,42 @@ body, html{
     margin-bottom: 6px;
 }
 .info-item input{
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    border-radius: 4px;
     padding: 5px;
 }
-.get-data-btn{
+.info-item input:focus{
+    border-radius: 4px;
+    border-color: #66afe9;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+}
+.btn{
+    outline: 0;
     padding: 6px;
     border: 1px solid #ccc;
     border-radius:3px;
     background-color: rgb(122, 155, 216);
     margin-top: 25px;
 }
-.get-data-btn:hover{
+.btn:hover{
     cursor: pointer;
     filter: brightness(1.2);
     background-color: rgb(32, 199, 73);
 }
+
 .logout{
     margin-top: 50px;
 }
 .logout-btn{
     right: 0;
     font-weight: 600;
-    padding: 6px;
+    letter-spacing: 1.1px;
+    padding: 8px 10px;
     border: 1px solid #ccc;
     background-color:rgb(189, 236, 18);
+    border-radius: 3px;
 }
 .logout-btn:hover{
     cursor: pointer;

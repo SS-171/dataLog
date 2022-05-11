@@ -16,38 +16,43 @@
 
 <body>
   
-    <div class="login">
+    <form class="login" action="/" method="POST">
         <div class="login-item title">
             <img src="https://tifatech.vn/user-upload/imgs/tifatech-manufacture-and-trading-company-limited-1.png" alt="">
             <span class="login__title">DATA LOGGER</span>
         </div>
         <div class="login-item">
+            <div class="login__text">Host url:</div>
+            <input type="text" placeholder="192.168.1.17:8080" class="host" required autocomplete="on">
+        </div>
+        <div class="login-item">
             <div class="login__text">Username</div>
             <input type="text" placeholder="Username" class="username" required autocomplete="on">
-
         </div>
         <div class="login-item">
             <div class="login__text">Password</div>
             <input class = "password" type="password" placeholder="Password" required autocomplete="on">
         </div>
         <div class="login-item">
-            <button class="login-btn">LOGIN</button>
+            <input type="submit" value ="LOGIN"class="login-btn"></button>
         </div>
-    </div>
+    </form>
 </body>
 
 </html>
 <script>
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
-    const loginBtn = $('.login-btn');
-    let host = "https://ac20-2402-800-6205-8bdb-c4e5-ddf8-1c4d-11ef.ap.ngrok.io:443/";
-    let authUrl = host.concat("api/auth/login");
+    const loginForm= $('.login');
+    
     let username = $('.username');
     let password = $('.password');
-    
  
-    loginBtn.onclick = function(){
+    loginForm.onsubmit = function(e){
+        e.preventDefault();
+        let host = "http://"+ $('.host').value
+        console.log(host)
+        let authUrl = host.concat("/api/auth/login")
         let data = {
             username:username.value,
             password:password.value
@@ -60,6 +65,7 @@
         .then(data =>{
             console.log(data.token);
             if(data.token){
+                localStorage.setItem('host', host)
                 localStorage.setItem("token", data.token);
                 location.href = "../home/index.html";
             }
