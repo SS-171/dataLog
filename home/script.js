@@ -55,7 +55,7 @@ const logConfig = {
 logout.click(function(){
     let logOutApi = host.concat("/api/auth/logout");
     postData(logOutApi, {})
-    location.href ="../login/index.html";
+    location.href ="../index.html";
 })
 
 
