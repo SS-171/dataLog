@@ -50,7 +50,7 @@
  
     loginForm.onsubmit = function(e){
         e.preventDefault();
-        let host = "http://"+ $('.host').value
+        let host = $('.host').value
         console.log(host)
         let authUrl = host.concat("/api/auth/login")
         let data = {
