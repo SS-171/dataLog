@@ -50,7 +50,7 @@
  
     loginForm.onsubmit = function(e){
         e.preventDefault();
-        let host = "https://"+ $('.host').value
+        let host = "https://"+ $('.host').value + ":443"
         console.log(host)
         let authUrl = host.concat("/api/auth/login")
         let data = {
